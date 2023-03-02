@@ -1,0 +1,15 @@
+.error{
+    animation: shake 0.2s ease-in-out;
+    border: 1px solid firebrick;
+    box-shadow: 0 0 0 1px firebrick;
+}
+.error::placeholder{
+    color: rgba(178, 34, 34, 0.554);
+}
+@keyframes shake {
+    0%{margin-left: 0%;}
+    25%{margin-left: 0.5rem;}
+    75%{margin-left: -0.5rem;}
+    100%{margin-left: 0;}
+
+}
