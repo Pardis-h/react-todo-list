@@ -55,14 +55,15 @@ const TodoContextProvider = ({children}) => {
     const editChangeHandler = event => {
         setEditValue(event.target.value)
         if(event.target.value.trim()){
-            setEmpty(true);
+            setEmpty(false);
         }else{
-            setEmpty(false)
+            setEmpty(true)
         }
     }
 
     // Update the corresponding todo text in todos state and localStorage on save button click
-    const saveEditHandler = (index, text) => {
+    const saveEditHandler = (index, text, event) => {
+        event.preventDefault();
         let newTodos = [...todos];
         if(text.trim()){
             newTodos[index].text = text.trim();
@@ -90,15 +91,18 @@ const TodoContextProvider = ({children}) => {
     }    
 
     // Filtering todos
+
     const filterHandler = event => {
         setFilter(event.target.value)
     }
-
+    const activeTodo = todos.filter(todo => !todo.done);
+    const doneTodo = todos.filter(todo => todo.done);
+    
     const filteredTodo = filter === "all" 
         ? todos 
         : filter === "active" 
-            ? todos.filter(todo => !todo.done)
-            : todos.filter(todo => todo.done);
+            ? activeTodo
+            : doneTodo;
 
     return (
         <TodoContext.Provider
