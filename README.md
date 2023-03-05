@@ -11,7 +11,7 @@ Users should be able to:
 
 ## ⚙️ 𝐏𝐥𝐮𝐬: 
 ✔️ Data stored in local storage so when the user refreshes the page or leaves it, the progress still exists.
-
+✔️ Use React Context
 
 ## 👀 𝗣𝗿𝗲𝘃𝗶𝗲𝘄
 <img src="./readme-files/TodoList.gif">
